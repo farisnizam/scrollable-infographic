@@ -7,6 +7,18 @@ body {
   color: #333;
 }
 
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+h1,
+p,
+.tooltip {
+  user-select: text;
+}
+
 section {
   overflow-x: hidden;
   display: flex;
@@ -27,7 +39,6 @@ section {
   cursor: pointer;
   text-align: center;
   position: relative;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -52,15 +63,17 @@ img {
   height: auto;
   max-width: 400px;
   border-radius: 5px;
+  -webkit-user-drag: none;
 }
 
 .animation {
   transition: 1.5s ease;
+  border-radius: 7px;
 }
 
 .animation:hover {
-  box-shadow: 0 15px 25px -25px #1f1f46;
-  transform: translateY(-8px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
 }
 
 .hotspot {
