@@ -7,6 +7,21 @@ document.addEventListener("DOMContentLoaded", () => {
 function initializeInfographic() {
     const content = document.getElementById("content");
 
+    // ✅ Add Loading Screen FIRST
+    const loadingScreen = document.createElement("div");
+    loadingScreen.id = "intro";
+    loadingScreen.classList.add("is-loading");
+    loadingScreen.innerHTML = `<h1 class="page-title"">Lifecycle of Coffee Beans</h1>`;
+    document.body.prepend(loadingScreen); // ✅ Ensures it's at the top
+
+    // ✅ Remove "is-loading" class after 100ms
+    setTimeout(() => {
+        document.getElementById("intro").classList.remove("is-loading");
+        window.scrollTo(0, 0); // ✅ Force scroll to top after the animation
+    }, 100);
+
+
+    // ✅ Loop through lifecycle sections and add them
     sectionsData.forEach((section, index) => {
         let sectionElement = document.createElement("section");
         sectionElement.style.backgroundImage = section.background;
@@ -14,8 +29,8 @@ function initializeInfographic() {
         sectionElement.innerHTML = `
             <div class="animation">
                 <div class="box" data-animation="${section.animation}" data-reset="${section.reset}" data-duration="${section.duration}">
-                    <h1>${section.title}</h1>
-                    <p>${section.text}</p>
+                    <h1 class="section-title">${section.title}</h1>
+                    <p class="section-paragraph">${section.text}</p>
                     <img src="${section.image}" alt="${section.title}">
                     <button class="hotspot" onclick="toggleTooltip(event, ${index})">?</button>
                     <div class="tooltip" id="tooltip-${index}">${section.tooltip}</div>
@@ -27,16 +42,12 @@ function initializeInfographic() {
 
     // Close tooltips when clicking outside
     document.addEventListener("click", (event) => {
-        if (
-            !event.target.classList.contains("hotspot") &&
-            !event.target.classList.contains("tooltip")
-        ) {
-            document
-                .querySelectorAll(".tooltip")
-                .forEach((t) => t.classList.remove("active"));
+        if (!event.target.classList.contains("hotspot") && !event.target.classList.contains("tooltip")) {
+            document.querySelectorAll(".tooltip").forEach((t) => t.classList.remove("active"));
         }
     });
 }
+
 
 // Initializes ScrollReveal animations based on each section's config
 function setupScrollReveal() {

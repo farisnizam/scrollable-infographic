@@ -5,6 +5,13 @@ const ScrollRevealAnimations = {
     RIGHT: "right"
 };
 
+const introConfig = {
+    title: "Lifecycle of Coffee Beans",
+    description: "From seed to cup, coffee undergoes a fascinating journey. This infographic explores each stage of the coffee bean’s lifecycle.",
+    background: "linear-gradient(to bottom, #6F4E37, #A67B5B)", // ✅ Dark coffee gradient
+};
+
+
 const sectionsData = [
     {
         title: "Stage 1: Growing",

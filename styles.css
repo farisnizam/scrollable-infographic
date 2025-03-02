@@ -19,6 +19,73 @@ p,
   user-select: text;
 }
 
+
+/* ✅ Prevents scroll jumping after load */
+#intro {
+  scroll-snap-align: start;
+}
+
+/* ✅ Re-enable scrolling after the animation */
+.is-loading + section {
+  scroll-snap-align: start;
+}
+
+#intro {
+	background: linear-gradient(to bottom, rgba(0,0,0,0.66) 100%, transparent), url(assets/a_bowl_of_coffee_beans.jpg);
+	background-size: cover, cover;
+	background-position: center, center;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.page-title {
+	font-family: "Merriweather", serif;
+	font-size: 2rem;
+	display: inline-block;
+	padding: 1rem;
+	font-weight: 400;
+	position: relative;
+	opacity: 1;
+	transform: scale(1);
+	transition: transform 0.5s ease, opacity 1s ease;
+  color: #fff;
+}
+
+.is-loading .page-title {
+	transform: scale(0.9);
+	opacity: 0;
+}
+
+.page-title:before,
+.page-title:after {
+	height: 2px;
+	width: 100%;
+	content: "";
+	background: white;
+	display: block;
+	position: absolute;
+	transition: width 0.4s ease;
+	transition-delay: 0.8s;
+}
+
+.page-title:before {
+	top: 0;
+	left: 0;
+}
+
+.page-title:after {
+	bottom: 0;
+	right: 0;
+}
+
+.is-loading .page-title:before,
+.is-loading .page-title:after {
+	width: 0;
+}
+
 section {
   overflow-x: hidden;
   display: flex;
@@ -41,7 +108,7 @@ section {
   position: relative;
 }
 
-h1 {
+.section-title {
   font-family: "Merriweather", serif;
   font-size: 4.5vw;
   color: #2c3e50;
@@ -50,7 +117,7 @@ h1 {
   margin-bottom: 15px;
 }
 
-p {
+.section-paragraph {
   font-size: 2.5vw;
   color: #555;
   line-height: 3.5vw;
@@ -127,7 +194,19 @@ img {
   pointer-events: auto;
 }
 
+body {
+	background: #445;
+	color: #FFF;
+}
+
+
 @media (max-width: 600px) {
+  .page-title {
+    font-size: 6vw;
+    line-height: 10vw;
+    padding: 10px;
+  }
+  
   .hotspot {
     width: 45px;
     height: 45px;
@@ -140,13 +219,13 @@ img {
     width: 40vw;
   }
 
-  h1 {
+  .section-title {
     font-size: 3vw;
     line-height: 3.5vw;
   }
 
-  p {
-    font-size: 1.2vw;
+  .section-paragraph {
+    font-size: 1.5vw;
     line-height: 1.8vw;
   }
 }
