@@ -53,15 +53,6 @@ img {
   border-radius: 5px;
 }
 
-.animation {
-  transition: 0.5s ease;
-}
-
-.animation:hover {
-  box-shadow: 0 15px 25px -25px #1f1f46;
-  transform: translateY(-8px);
-}
-
 .hotspot {
     position: absolute;
     bottom: 10px;
