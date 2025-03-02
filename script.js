@@ -56,3 +56,14 @@ function setupScrollReveal() {
         });
     });
 }
+
+function toggleTooltip(event, index) {
+    event.stopPropagation(); 
+    let tooltip = document.getElementById(`tooltip-${index}`);
+
+    document.querySelectorAll(".tooltip").forEach(t => {
+        if (t !== tooltip) t.classList.remove("active");
+    });
+
+    tooltip.classList.toggle("active");
+}

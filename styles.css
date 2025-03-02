@@ -8,6 +8,7 @@ body {
 }
 
 section {
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,28 +54,37 @@ img {
   border-radius: 5px;
 }
 
+.animation {
+  transition: 1.5s ease;
+}
+
+.animation:hover {
+  box-shadow: 0 15px 25px -25px #1f1f46;
+  transform: translateY(-8px);
+}
+
 .hotspot {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: #e74c3c;
-    color: white;
-    border: none;
-    width: 50px;  
-    height: 50px;
-    min-width: 40px;
-    min-height: 40px;
-    aspect-ratio: 1/1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s, transform 0.2s;
-    z-index: 10;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  min-width: 40px;
+  min-height: 40px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s, transform 0.2s;
+  z-index: 10;
 }
 
 .hotspot:hover {
@@ -105,11 +115,11 @@ img {
 }
 
 @media (max-width: 600px) {
-    .hotspot {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
+  .hotspot {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
 }
 
 @media (min-width: 768px) {
