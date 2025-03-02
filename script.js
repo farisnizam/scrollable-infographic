@@ -11,7 +11,7 @@ function initializeInfographic() {
     const loadingScreen = document.createElement("div");
     loadingScreen.id = "intro";
     loadingScreen.classList.add("is-loading");
-    loadingScreen.innerHTML = `<h1 class="page-title"">Lifecycle of Coffee Beans</h1>`;
+    loadingScreen.innerHTML = `<h1 class="page-title">${introTitle}</h1>`;
     document.body.prepend(loadingScreen); // ✅ Ensures it's at the top
 
     // ✅ Remove "is-loading" class after 100ms

@@ -5,9 +5,7 @@ const ScrollRevealAnimations = {
     RIGHT: "right"
 };
 
-const introConfig = {
-    title: "Lifecycle of Coffee Beans",
-};
+const introTitle = "Lifecycle of Coffee Beans";
 
 const sectionsData = [
     {
